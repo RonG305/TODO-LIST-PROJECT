@@ -1,0 +1,11 @@
+{% extends 'tasks/base.html' %}
+
+
+{% block content %}
+<div class="container">
+    <h3><strong>Do you want to delete {{ item.title }}</strong></h3>
+    <a href="{% url 'index'%}"><input type="submit" class="btn btn-danger"></a>
+    <a href="{% url 'index' %}" class="btn btn-primary">Cancel</a>
+</div>
+
+{% endblock content %}

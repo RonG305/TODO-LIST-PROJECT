@@ -1,0 +1,22 @@
+{% extends 'tasks/base.html' %}
+
+{% block content %}
+{% if tasks %}
+<div class="container">
+    <form action="" method="POST">
+        {% csrf_token %}
+        {{ form }}
+    </form>
+    <h1>TODO LIST PROJECT</h1>
+    {% for task in tasks %}
+    <div class="task">
+        <p class="text-light">{{ task }}</p>
+        <a href="{% url 'add_todo' %}" class="btn btn-primary">Add Task</a>
+        <a href="{% url 'update' task.id %} " class="btn btn-info">Update</a>
+        <a href="{% url 'delete' task.id %} " class="btn btn-danger">Delete</a>
+    </div>
+    
+    {% endfor %}
+    {% endif %}
+  </div>
+{% endblock content %}
